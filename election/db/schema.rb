@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113120246) do
+ActiveRecord::Schema.define(version: 20150123150234) do
 
   create_table "campaign_commitees", force: :cascade do |t|
     t.string   "name"
@@ -21,10 +21,11 @@ ActiveRecord::Schema.define(version: 20150113120246) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "commitees", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "campaign_commitees_voivodships", force: :cascade do |t|
+    t.integer  "campaign_commitee_id"
+    t.integer  "voivodship_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "districts", force: :cascade do |t|
@@ -35,15 +36,10 @@ ActiveRecord::Schema.define(version: 20150113120246) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "login"
     t.string   "password"
+    t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

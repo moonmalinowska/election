@@ -1,6 +1,7 @@
 class Vote < ActiveRecord::Base
-  has_many :districts
+  belongs_to :districts
   belongs_to :campaign_commitee
+
   validates :vote, numericality: true
   validates :valid_vote, numericality: true
   validates :invalid_vote, numericality: true

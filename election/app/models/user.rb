@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
-  has_many :roles
-  belongs_to :commitee
-  belongs_to :district
-  validates :password, length: {within: 6..30}
+
+  has_one :district
+  validates :password, length: {within: 6..30},
     confirmation: {
-      message: "should match confirmation"
+      message: "Hasła nie zgadzają się!"
     }
-  validates :login, uniqueness: true
-    length: {within: 6..15}
+  validates :login, uniqueness: true,
+    length: {within: 6..15},
+    confirmation: {
+        message: "Ilość znaków loginu: 6-15"
+    }
 end
