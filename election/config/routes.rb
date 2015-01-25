@@ -7,10 +7,6 @@ Rails.application.routes.draw do
 
   resources :districts
 
-  resources :commitees
-
-  resources :roles
-
   resources :voivodships
 
   resources :users
