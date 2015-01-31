@@ -11,9 +11,26 @@
 </p>
 
 <p>
-  <strong>Mandate:</strong>
+  <strong>Invalid vote:</strong>
   <%= @district.mandate %>
 </p>
+
+<p>
+  <strong>Empty vote:</strong>
+  <%= @district.empty_vote %>
+</p>
+
+<p>
+  <strong>Other vote:</strong>
+  <%= @district.other_vote %>
+</p>
+
+<p>
+  <strong>Issued voting card:</strong>
+  <%= @district.issued_voting_card %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_district_path(@district) %> |
 <%= link_to 'Back', districts_path %>

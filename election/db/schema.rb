@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123160458) do
+ActiveRecord::Schema.define(version: 20150131190608) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -65,16 +65,22 @@ ActiveRecord::Schema.define(version: 20150123160458) do
     t.string   "name"
     t.integer  "electorate"
     t.integer  "mandate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "invalid_vote"
+    t.integer  "empty_vote"
+    t.integer  "other_vote"
+    t.integer  "issued_voting_card"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "login"
     t.string   "password"
     t.string   "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "encrypted_password"
+    t.string   "salt"
   end
 
   create_table "voivodships", force: :cascade do |t|
@@ -85,13 +91,8 @@ ActiveRecord::Schema.define(version: 20150123160458) do
 
   create_table "votes", force: :cascade do |t|
     t.integer  "vote"
-    t.integer  "valid_vote"
-    t.integer  "invalid_vote"
-    t.integer  "empty_vote"
-    t.integer  "other_vote"
-    t.integer  "issued_voting_card"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

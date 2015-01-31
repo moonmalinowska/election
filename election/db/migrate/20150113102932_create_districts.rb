@@ -6,6 +6,11 @@ class CreateDistricts < ActiveRecord::Migration
       t.integer :mandate
       t.integer :user_id
       t.integer :voivodship_id
+      t.integer :invalid_vote
+      t.integer :empty_vote
+      t.integer :other_vote
+      t.integer :issued_voting_card
+
 
       t.timestamps null: false
     end

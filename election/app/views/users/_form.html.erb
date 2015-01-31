@@ -1,3 +1,4 @@
+<% @page_title = "Rejestracja" %>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +20,15 @@
     <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.text_field :password_confirmation %>
+    </div>
+  <div>
+    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

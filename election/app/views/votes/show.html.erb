@@ -5,30 +5,6 @@
   <%= @vote.vote %>
 </p>
 
-<p>
-  <strong>Valid vote:</strong>
-  <%= @vote.valid_vote %>
-</p>
-
-<p>
-  <strong>Invalid vote:</strong>
-  <%= @vote.invalid_vote %>
-</p>
-
-<p>
-  <strong>Empty vote:</strong>
-  <%= @vote.empty_vote %>
-</p>
-
-<p>
-  <strong>Other vote:</strong>
-  <%= @vote.other_vote %>
-</p>
-
-<p>
-  <strong>Issued voting card:</strong>
-  <%= @vote.issued_voting_card %>
-</p>
 
 <%= link_to 'Edit', edit_vote_path(@vote) %> |
 <%= link_to 'Back', votes_path %>

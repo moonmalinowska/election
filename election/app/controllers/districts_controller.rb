@@ -69,6 +69,6 @@ class DistrictsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def district_params
-      params.require(:district).permit(:name, :electorate, :mandate)
+      params.require(:district).permit(:name, :electorate, :mandate, :invalid_vote, :empty_vote, :other_vote, :issued_voting_card)
     end
 end
