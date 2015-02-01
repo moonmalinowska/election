@@ -52,3 +52,5 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'cancancan', '~> 1.10'
 gem 'bcrypt', :require => 'bcrypt' 
+
+#gem 'json-1.8.2'

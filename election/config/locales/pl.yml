@@ -28,3 +28,5 @@ pl:
       user:
         signed_in: "Zostałeś zalogowany."
         signed_out: "Zostałeś wylogowany."
+
+
