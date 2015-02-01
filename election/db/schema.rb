@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131190608) do
+ActiveRecord::Schema.define(version: 20150201194446) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20150131190608) do
     t.integer  "empty_vote"
     t.integer  "other_vote"
     t.integer  "issued_voting_card"
+    t.integer  "user_id"
+    t.integer  "voivodship_id"
   end
 
   create_table "users", force: :cascade do |t|

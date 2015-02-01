@@ -10,6 +10,14 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+    section "Ostatnio dodane okręgi wyborcze" do
+      table_for District.order("created_at desc").limit(5) do
+        column :name
+        column :created_at
+      end
+    end
+
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
