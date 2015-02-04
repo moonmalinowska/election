@@ -1,5 +1,6 @@
 class DistrictsController < ApplicationController
   before_action :set_district, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, :except => [:index,:show]
 
   # GET /districts
   # GET /districts.json

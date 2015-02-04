@@ -3,24 +3,21 @@ class User < ActiveRecord::Base
   has_one :district
 
 
-  validates :password, length: {within: 6..30}, :on => :create,
-    confirmation: {
-      message: "Hasła nie zgadzają się!"
-    }
-  validates :login, uniqueness: true, :presence => true,
-    length: {within: 6..15},
-    confirmation: {
-        message: "Ilość znaków loginu: 6-15"
-    }
+  #validates :password, length: {minimum: 6}, :on => :create, unless: Proc.new { |a| a.password.blank? }
+  #validates :password_confirmation, length: {minimum: 6}
+  #validates :login, uniqueness: true, :presence => true,
+  #  length: {minimum: 6}
 
-=begin
+ # attr_protected :admin
+  #has_secure_password
   acts_as_authentic do |config|
-    config.validate_login_field = false
-    config.validate_password_field = false
-    config.encrypted_password_field = :crypted_password
-    config.require_password_confirmation = true
+    config.crypted_password_field = :crypted_password
+    #config.validate_login_field = false
+    #config.validate_password_field = false
+    #config.crypto_provider = Authlogic::CryptoProviders::BCrypt
+    config.require_password_confirmation =true
   end
-=end
+
   ROLES = %w[admin centralny okręgowy]
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)

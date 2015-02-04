@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+=begin
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -35,11 +36,29 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+=end
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "Your account has been created."
+      redirect_to root_url
+    else
+      flash[:notice] = "There was a problem creating you."
+      render :action => :new
+    end
+
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Successfully updated profile."
+      redirect_to admin_root_path
+    else
+      render :action => 'edit'
+    end
+=begin
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -49,6 +68,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # DELETE /users/1
@@ -69,6 +89,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:login, :password)
+      params.require(:user).permit(:login, :password, :password_confirmation, :role)
     end
 end

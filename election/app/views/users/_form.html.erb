@@ -13,22 +13,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login %><br>
+    <strong>Login:</strong><br>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <strong>Hasło:</strong><br>
+    <%= f.password_field :password %>
   </div>
     <div class="field">
-      <%= f.label :password_confirmation %><br>
-      <%= f.text_field :password_confirmation %>
+      <strong>Potwierdź hasło:</strong><br>
+      <%= f.password_field :password_confirmation %>
     </div>
   <div>
     <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Zarejestruj" %>
   </div>
 <% end %>
 

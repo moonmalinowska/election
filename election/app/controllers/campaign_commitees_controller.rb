@@ -1,5 +1,6 @@
 class CampaignCommiteesController < ApplicationController
   before_action :set_campaign_commitee, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, :except => [:index,:show]
 
   # GET /campaign_commitees
   # GET /campaign_commitees.json

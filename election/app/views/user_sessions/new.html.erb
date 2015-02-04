@@ -1,0 +1,12 @@
+<%= form_for @user_session do |f| %>
+    <!-- komunikaty błędów -->
+    <p>
+      <strong>Login:</strong> <br />
+      <%= f.text_field :login %>
+    </p>
+    <p>
+      <strong>Hasło:</strong> <br />
+      <%= f.password_field :password %>
+    </p>
+    <p><%= f.submit "Zaloguj" %> </p>
+<% end %>
